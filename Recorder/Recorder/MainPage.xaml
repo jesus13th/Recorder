@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Recorder.MainPage">
+    <StackLayout Margin="10" >
+        <Grid RowDefinitions = "auto, *">
+            <Grid Grid.Row="0" Grid.Column="0" ColumnDefinitions="auto, 8*" Padding="5" RowDefinitions="auto" BackgroundColor="Gray">
+                <Button ImageSource="mic_off.png" x:Name="recordBtn" HeightRequest="120" WidthRequest="120" Clicked="recordBtn_Clicked" VerticalOptions="Center"  Grid.Row="0" Grid.Column="0"/>
+                <Label Text="Time: 00:00:00" x:Name="timeLabel" FontSize="35" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+            <ListView Grid.Row="1" Grid.Column="0" BackgroundColor="Gray" x:Name="AudioList" Margin="0" ItemTapped="AudioList_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Padding="0" FontSize="Micro" Text="{Binding .}" Margin="10" VerticalOptions = "Center"/>
+                                <ImageButton CommandParameter="{Binding .}" Source="menu.png" x:Name="audioItemButton" Clicked="audioItemButton_Clicked" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" Margin="5"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
